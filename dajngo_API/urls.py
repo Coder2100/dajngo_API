@@ -18,6 +18,8 @@ from django.urls import path
 from django.conf.urls import url, include
 from django.contrib.auth.models import User
 from rest_framework import serializers, viewsets, routers
+#from quickstart import views
+from quickstart import views
 
 #Serializers api
 
@@ -34,6 +36,7 @@ class UserViewSet(viewsets.ModelViewSet):
 #Routers provide a way of automatically determining the URL conf
 router = routers.DefaultRouter()
 router.register(r'users',UserViewSet)
+router.register(r'group', views.GroupViewSet)
 
 #Wire up our API using automatic url routing
 #additionally we include login urls for the browser API
